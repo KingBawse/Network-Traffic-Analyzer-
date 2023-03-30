@@ -21,7 +21,7 @@ def get_mac_addr(bytes_addr):
 
 
 def main():
-    
+    print("--output not displayed----") 
     if platform.system() == 'Windows':
         conn = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.ntohs(0x0800))
     else:
@@ -35,7 +35,7 @@ def main():
 
         # 8 for IPv4
         if eth_proto == 8:
-            proto: object
+            proto= object
             (version, header_length, ttl, proto, src, target, data) = ipv4_packet(data)
             print(TAB_1 + 'IPv4 Packet:')
             print(TAB_2 + 'version: {}, header length: {}, TTL: {}'.format(version, header_length, ttl))
@@ -84,7 +84,7 @@ def main():
 def ethernet_frame(data):
     dest_mac, src_mac, proto = struct.unpack('! 6s 6s H', data[:14])
     return get_mac_addr(dest_mac), get_mac_addr(src_mac), socket.htons(proto), data[14:]
-
+    
 
 # unpack IPv4 Packet
 def ipv4_packet(data):
@@ -97,7 +97,7 @@ def ipv4_packet(data):
 
 # return properly formatted IPv4 address
 def ipv4(addr):
-    return '.'.join(map / (str, addr))
+    return '.'.join(map  (str, addr))
 
 
 # unpack ICMP packet
@@ -137,3 +137,5 @@ def format_multi_line(prefix, string, size=80):
             size -= 1
             # Use textwrap module to wrap the string to the specified size and join the lines with the prefix
     return '\n'.join([prefix + line for line in textwrap.wrap(string, size)])
+
+main()
