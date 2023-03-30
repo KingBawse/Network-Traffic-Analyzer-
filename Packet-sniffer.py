@@ -21,7 +21,7 @@ def get_mac_addr(bytes_addr):
 
 
 def main():
-    print("--output not displayed----") 
+   
     if platform.system() == 'Windows':
         conn = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.ntohs(0x0800))
     else:
